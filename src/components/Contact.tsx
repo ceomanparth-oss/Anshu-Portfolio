@@ -23,7 +23,7 @@ const contactItems = [
     icon: Linkedin,
     label: 'LinkedIn',
     value: 'Connect with me',
-    href: 'www.linkedin.com/in/anshu-raj2006/',
+    href: 'https://www.linkedin.com/in/anshu-raj2006/',
     color: 'text-blue-400',
     bg: 'bg-blue-500/10',
     border: 'border-blue-500/30',
@@ -32,7 +32,7 @@ const contactItems = [
     icon: Github,
     label: 'GitHub',
     value: 'View my projects',
-    href: 'github.com/Anshworld',
+    href: 'https://github.com/Anshworld',
     color: 'text-slate-300',
     bg: 'bg-slate-500/10',
     border: 'border-slate-500/30',
@@ -53,36 +53,45 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-[#0d1f3c] py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="contact" className="bg-[#0d1f3c] py-24 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-15">
+        <div className="absolute bottom-40 left-1/3 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-sky-500 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <span className="text-orange-400 text-sm font-bold tracking-widest uppercase">Get In Touch</span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-2">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3">
             Ready to Build<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-sky-400">
-              the Future
+              the Future Together
             </span>
           </h2>
-          <p className="text-slate-400 mt-4 max-w-xl mx-auto leading-relaxed">
-            "Coming from Jamshedpur, working in Noida feels like a step closer to creating a massive impact. Let's build something meaningful together."
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+            "Coming from Jamshedpur, working in Noida feels like a step closer to creating massive impact. Let's build something meaningful together."
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-[#0a1628] border border-white/10 rounded-2xl p-8">
-            <h3 className="text-white font-bold text-xl mb-2">Available for High-Impact Roles</h3>
-            <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              I'm actively looking for opportunities in Marketing Strategy, Operations Management, and Business Execution. Open to full-time and collaborative roles.
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="bg-gradient-to-br from-[#0a1628]/80 to-[#0d1f3c]/80 backdrop-blur-sm border border-white/15 rounded-2xl p-8 hover:border-orange-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20">
+            <h3 className="text-white font-bold text-xl mb-3">Available for High-Impact Roles</h3>
+            <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+              Actively exploring opportunities in Business Analysis, Marketing & Operations Management, and Business & Startup Execution.    
+              <p className="text-slate-400 text-sm mb-3 leading-relaxed">
+                Open to full-time and collaborative ventures.
+              </p>
             </p>
 
-            <div className="flex items-center gap-2 text-slate-500 text-sm mb-6">
-              <MapPin size={14} className="text-orange-400" />
-              <span>Pan India — Open to Relocation</span>
+            <div className="flex items-center gap-2 text-slate-400 text-sm mb-6">
+              <MapPin size={16} className="text-orange-400 flex-shrink-0" />
+              <span className="font-semibold"> Pan India — Open to Relocation</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {['Marketing Operations', 'Execution Specialist', 'AI/ML Engineer', 'Startup Ecosystem'].map((tag) => (
-                <span key={tag} className="text-xs text-orange-300 bg-orange-500/10 border border-orange-500/30 px-3 py-1.5 rounded-full font-medium">
+              {['Marketing Operations','Business Analysis','Startup Ecosystem', 'Execution Specialist', 'AI/ML Engineer'].map((tag) => (
+                <span key={tag} className="text-xs text-orange-300 bg-gradient-to-r from-orange-500/20 to-orange-400/10 border border-orange-500/40 px-3 py-1.5 rounded-full font-medium hover:border-orange-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20">
                   {tag}
                 </span>
               ))}
@@ -96,31 +105,31 @@ export default function Contact() {
                 href={href}
                 target={href.startsWith('http') || href === '#' ? '_blank' : undefined}
                 rel="noreferrer"
-                className={`block bg-[#0a1628] border ${border} rounded-xl p-4 hover:border-opacity-70 transition-all duration-300 hover:-translate-y-1 group`}
+                className={`group block bg-gradient-to-br from-[#0a1628] to-[#0d1f3c] border ${border} rounded-2xl p-5 hover:border-opacity-70 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-current/20 overflow-hidden`}
               >
-                <div className={`inline-flex items-center justify-center w-9 h-9 rounded-lg ${bg} mb-3`}>
-                  <Icon size={18} className={color} />
+                <div className={`inline-flex items-center justify-center w-11 h-11 rounded-lg ${bg} mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon size={20} className={color} />
                 </div>
-                <div className="text-slate-500 text-xs font-medium mb-0.5">{label}</div>
-                <div className={`text-xs font-semibold ${color} flex items-center gap-1 group-hover:gap-2 transition-all`}>
+                <div className="text-slate-500 text-xs font-bold uppercase tracking-wide mb-1">{label}</div>
+                <div className={`text-xs font-semibold ${color} flex items-center gap-1 group-hover:gap-2 transition-all line-clamp-2`}>
                   {value}
-                  <ArrowUpRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                 </div>
               </a>
             ))}
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-slate-500 text-sm text-center md:text-left">
-            <span className="text-orange-400 font-bold">Anshu Raj</span> —  Marketing Operations | Execution Specialist | AI-ML Engineer
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-slate-400 text-sm text-center md:text-left">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-sky-400 font-bold">Anshu Raj</span> — Marketing Operations | Business analysis | Execution | AI-ML
           </div>
           <div className="flex items-center gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href)}
-                className="text-slate-500 hover:text-orange-400 transition-colors text-sm"
+                className="text-slate-400 hover:text-orange-400 transition-all duration-300 text-sm font-medium hover:translate-x-1"
               >
                 {link.label}
               </button>

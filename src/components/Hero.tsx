@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Download, ArrowRight } from 'lucide-react';
+import profilePic from '../pic (1).jpg';
 
 const roles = [
   'Marketing Operations Lead',
   'Execution Specialist',
   'AI-ML Engineer',
   'Startup Founder',
+  'Business analysis',
 ];
 
 export default function Hero() {
@@ -47,10 +49,11 @@ export default function Hero() {
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 20% 50%, rgba(249,115,22,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(14,165,233,0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 50%, rgba(249,115,22,0.2) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(14,165,233,0.2) 0%, transparent 50%)',
         }}
       />
-      <div className="absolute inset-0 opacity-[0.04]"
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
@@ -84,24 +87,33 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
                 onClick={() => handleScroll('#campaigns')}
-                className="group flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-0.5"
+                className="group flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/50 hover:-translate-y-1 transform"
               >
                 View My Campaigns
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:bg-white/5 hover:-translate-y-0.5">
-                <Download size={16} />
-                Download Resume
+              <button className="flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/60 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/10 hover:-translate-y-1 backdrop-blur-sm">
+                <Download size={18} />
+                <a href="src/Anshu_Raj__BA.pdf" target="_blank" rel="noopener noreferrer" className="text-white">
+                  Download Resume
+                </a>
               </button>
               
             </div>
 
-            <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-6">
+            <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
               {[
                 { label: 'PhysicsWallah', color: 'text-sky-400' },
                 { label: 'Planet Spark', color: 'text-orange-400' },
                 { label: 'Galgotias University', color: 'text-emerald-400' },
                 { label: 'GICRISE', color: 'text-orange-400' },
+              ].map((org) => (
+                <span key={org.label} className={`text-xs font-bold tracking-widest uppercase ${org.color} opacity-70`}>
+                  {org.label}
+                </span>
+              ))}
+              <div className="basis-full" />
+              {[
                 { label: 'Applied Enginering Servises', color: 'text-emerald-400' },
                 { label: 'Just Dial', color: 'text-orange-400' },
                 { label: 'ANA Groups', color: 'text-sky-400' },
@@ -114,23 +126,25 @@ export default function Hero() {
           </div>
 
           <div className="flex-shrink-0 relative">
-            <div className="w-72 h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-orange-500/40 shadow-2xl shadow-orange-500/20 relative">
+            <div className="w-64 h-80 lg:w-72 lg:h-96 rounded-3xl overflow-hidden border-4 border-orange-500/70 shadow-2xl shadow-orange-500/50 relative">
               <img
-                src="https://media.licdn.com/dms/image/v2/D5603AQHZdAxjJhYOEw/profile-displayphoto-scale_400_400/B56Z2L1pdgKcAg-/0/1776167592549?e=1777507200&v=beta&t=cWOuxc0aVLxlSwcAcjStwlysavlSba0AcraYu2y-Myk"
+                src={profilePic}
                 alt="Anshu Raj"
                 className="w-full h-full object-cover "
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/20 to-transparent" />
             </div>
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-orange-500/20 rounded-full blur-xl" />
+            <div className="absolute -top-4 -right-4 w-20 h-15 bg-orange-500/20 rounded-full blur-xl" />
             <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-sky-500/20 rounded-full blur-xl" />
+          </div>
 
-            <div className="absolute -right-6 top-1/4 bg-[#0f2040] border border-white/10 rounded-xl px-4 py-3 shadow-xl">
-              <div className="text-2xl font-bold text-orange-400">12+</div>
+          <div className="hidden lg:flex flex-col gap-3 absolute top-12 right-0">
+            <div className="bg-[#0f2040] border border-white/10 rounded-xl px-3 py-2 shadow-xl animate-slide-down">
+              <div className="text-lg font-bold text-orange-400">12+</div>
               <div className="text-xs text-slate-400">Schools Handled</div>
             </div>
-            <div className="absolute -left-8 bottom-1/4 bg-[#0f2040] border border-white/10 rounded-xl px-4 py-3 shadow-xl">
-              <div className="text-2xl font-bold text-sky-400">10K+</div>
+            <div className="bg-[#0f2040] border border-white/10 rounded-xl px-3 py-2 shadow-xl animate-slide-up">
+              <div className="text-lg font-bold text-sky-400">10K+</div>
               <div className="text-xs text-slate-400">Audience Reached</div>
             </div>
           </div>

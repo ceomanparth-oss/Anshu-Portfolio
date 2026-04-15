@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Award, BookOpen, Users, Globe, Lightbulb, TrendingUp, Rocket, Building2, Settings} from 'lucide-react';
+import { Award, BookOpen, Users, Globe, Lightbulb, TrendingUp, Rocket, Settings} from 'lucide-react';
 
 const orgs = [
   {
