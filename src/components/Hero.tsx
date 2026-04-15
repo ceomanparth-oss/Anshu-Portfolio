@@ -94,7 +94,7 @@ export default function Hero() {
               </button>
               <button className="flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/60 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/10 hover:-translate-y-1 backdrop-blur-sm">
                 <Download size={18} />
-                <a href="/Anshu_Raj__BA.pdf" target="_blank" rel="noopener noreferrer" className="text-white">
+                <a href="/Anshu_Raj.pdf" target="_blank" rel="noopener noreferrer" className="text-white">
                   Download Resume
                 </a>
               </button>
